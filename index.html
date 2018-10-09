@@ -6,7 +6,7 @@
   <title>Giphy API</title>
 
   <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
   <link rel="shortcut icon" type="image/png" href="">
   <link href="https://fonts.googleapis.com/css?family=Monoton|Sintony" rel="stylesheet">
 </head>
@@ -17,77 +17,44 @@
         Header 
         ------------------------------------>
   <header>
-    <div id="header">
-      <h1 class="header" id="t">T</h1>
-      <h1 class="header" id="h">h</h1>
-      <h1 class="header" id="e">e</h1>
-
-      <h1 class="header" id="g"> G</h1>
-      <h1 class="header" id="i"> i </h1>
-      <h1 class="header" id="p"> p </h1>
-      <h1 class="header" id="h2"> h</h1>
-      <h1 class="header" id="y"> y </h1>
-
-      <h1 class="header" id="a"> A</h1>
-      <h1 class="header" id="p2"> p</h1>
-      <h1 class="header" id="p3"> p</h1>
-
-    </div>
-
-
-<div class="instructions">
-    <h2>Instructions:</h2>
-    <p>Click on an image and see the magic!</p>
-  </div>
+        <h1> The Giphy App</h1>
+      <br><br>
   </header>
   <!------------------------------------------
         Aside 
         ------------------------------------>
-  <aside class="giphy">
+ 
+      <h2>Instructions:</h2>
+      <p>Click on a button and see the magic!</p>
+   
 
-    <div>
+      <!-- ORIGINAL BUTTONS -->
+   
+
+      <div id="buttons-view"></div>
+<br><br>
+      <!-- ADDING A BUTTON -->
+      <form id="animal-form">
+        <label for="animal-input">Add an animal, Yo!</label>
+        <input type="text" id="animal-input">
+        <br>
+
+        <!-- Button triggers new movie to be added -->
+        <input id="add-animal" type="submit" value="Do it!">
+      </form>
+      <br><br>
 
 
-      <button data-animal="cat">meow</button>
-      <button data-animal="dog">woof</button>
-      <button data-animal="bird">chirp</button>
-
+      <!-- WHERE GIFS APPEAR -->
+      <div id="gifs-appear-here">
+      </div>
 
   </aside>
 
 
-
-
-  <!------------------------------------------
-        Section 
-        ------------------------------------>
-
-  <section>
-      <div id="gifs-appear-here">
-        </div>
-
-
-
-
-
-
-
-    </div>
-  </section>
-  <!------------------------------------------
-        Footer 
-        ------------------------------------>
-  <footer>
-    <div class="footer-container">
-      <a href="https://github.com/guthriet1230"><img id="github" src="assets/images/Footer/GithubLogo.png"></a>
-      <a href="https://www.linkedin.com/in/tyler-guthrie-0a608857/"><img id="linkedin" src="assets/images/Footer/LinkedinLogo.jpg"></a>
-      <a href="mailto:guthriet1230@gmail.com"><img id="gmail" src="assets/images/Footer/GmailLogo.png"></a>
-    </div>
-  </footer>
-
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="assets/javascript/javascript.js"></script> -->
 <script type="text/javascript" src="assets/javascript/javascript.js"></script>
-
 </html>

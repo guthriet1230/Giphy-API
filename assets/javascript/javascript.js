@@ -1,21 +1,23 @@
-var animals = ["cats", "dogs"]
+var animals = ["cats", "pumpkins", "ghouls", "bats", "zombie"];
 
-$(document).on("click",".animals-btn", function() {
+$(document).on("click", ".animals-btn", function() {
   var animal = $(this).attr("data-name");
   console.log(animal);
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-  animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+  var queryURL =
+    "https://api.giphy.com/v1/gifs/search?q=" +
+    animal +
+    "&api_key=dc6zaTOxFJmzC&limit=10";
 
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-      console.log(response);
-      var results = response.data; 
+    // console.log(response);
+    var results = response.data;
 
     $("#gifs-appear-here").empty();
 
-      for (var i = 0; i < results.length; i++) {
+    for (var i = 0; i < results.length; i++) {
       var animalDiv = $("<div>");
       var p = $("<p>");
       p.text("Rating: " + results[i].rating);
@@ -26,33 +28,32 @@ $(document).on("click",".animals-btn", function() {
       animalImage.attr("data-state", "still");
       animalDiv.append(p);
       animalDiv.append(animalImage);
-
-      
-// gifs starting paused
-$(document).on("click", "img", function () {
-      var state = $(this).attr("data-state");
-      console.log(state);
-    
-      if (state === 'still') {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-      }
-      if (state === 'animate') {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-      }});
-
-      // prepend to the HTML
       $("#gifs-appear-here").prepend(animalDiv);
-      }
+      console.log(results[i]);
+    }
   });
-})
+});
 
+// gifs starting paused
+$(document).on("click", "img", function() {
+  var state = $(this).attr("data-state");
+  console.log(state);
+
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  }
+  if (state === "animate") {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+
+  // prepend to the HTML
+});
 
 // defining the array, rendering buttons, and adding buttons
 
 function renderButtons() {
-
   $("#buttons-view").empty();
   for (var i = 0; i < animals.length; i++) {
     var a = $("<button>");
@@ -65,9 +66,11 @@ function renderButtons() {
 
 $("#add-animal").on("click", function(event) {
   event.preventDefault();
-  var animalz = $("#animal-input").val().trim();
+  var animalz = $("#animal-input")
+    .val()
+    .trim();
   animals.push(animalz);
   renderButtons();
-}); 
+});
 
-renderButtons()
+renderButtons();
